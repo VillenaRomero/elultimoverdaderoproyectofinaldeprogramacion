@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3007007092956208234}
   - component: {fileID: 4964239835344803824}
-  - component: {fileID: 1969153815449598416}
   - component: {fileID: 2366017808381758211}
   - component: {fileID: 4446828032981505046}
   m_Layer: 0
   m_Name: nave enemiga 1
-  m_TagString: Untagged
+  m_TagString: enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1969153815449598416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1771635242281717149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed18f72a21e104843a113ff31e35fba4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedy: -1
 --- !u!50 &2366017808381758211
 Rigidbody2D:
   serializedVersion: 4
@@ -163,7 +149,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.32, y: 5.12}
+    oldSize: {x: 5.12, y: 4.32}
     newSize: {x: 4.32, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

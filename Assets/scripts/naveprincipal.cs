@@ -6,14 +6,16 @@ using UnityEngine.SceneManagement;
 public class naveprincipal : MonoBehaviour
 {
     public int life;
-    private bool p = true;
     public float speedx;
     public float speedy;
     private Rigidbody2D _compRigidbody2D;
     public Transform spawner;
     public GameObject bulletprefab;
-    public int puntos = 320;
 
+    public float timeTiCreate = 30;
+    public float currentTimetuCreate;
+
+    public string nivel;
     void Start()
     {
         _compRigidbody2D = GetComponent<Rigidbody2D>();
@@ -26,7 +28,11 @@ public class naveprincipal : MonoBehaviour
             bullet.transform.position = spawner.position;
             bullet.transform.rotation = transform.rotation;
         }
-
+        currentTimetuCreate = currentTimetuCreate + Time.deltaTime;
+        if (currentTimetuCreate >= timeTiCreate)
+        {
+            SceneManager.LoadScene(nivel);
+        }
     }
 
     // Update is called once per frame
@@ -37,14 +43,14 @@ public class naveprincipal : MonoBehaviour
 
         _compRigidbody2D.velocity = new Vector2(speedx * horizontal, speedy * vertical);
 
-        
+
         /*if (puntos == 320)
         {
             SceneManager.LoadScene("nivel2");
         }*/
     }
 
-    public void OnCollisionStay2D(Collision2D collision)
+    public void OnCollision2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "enemigo")
         {

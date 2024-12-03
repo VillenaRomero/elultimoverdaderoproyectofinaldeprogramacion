@@ -5,30 +5,28 @@ using UnityEngine;
 public class MovimientodeObjeto : MonoBehaviour
 {
     private Rigidbody2D rigibody2d;
+    public float speedx;
     public float speedy;
-    void Start()
-    {
+    public string nametag;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     private void Awake()
     {
         rigibody2d = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate()
     {
-        rigibody2d.velocity = new Vector2(0, speedy);
+        rigibody2d.velocity = new Vector2(speedx, speedy);
     }
-    public void OnCollisionStay2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision collision)
     {
-        if (collision.gameObject.tag == "bala")
+        if (collision.gameObject.tag == nametag)
+        {
+            Destroy(this.gameObject);
+        }
+        if (collision.gameObject.tag == "vacio")
         {
             Destroy(this.gameObject);
         }
     }
 }
+

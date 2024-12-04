@@ -17,7 +17,7 @@ public class MovimientodeObjeto : MonoBehaviour
     {
         rigibody2d.velocity = new Vector2(speedx, speedy);
     }
-    public void OnCollisionEnter2D(Collision collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == nametag)
         {

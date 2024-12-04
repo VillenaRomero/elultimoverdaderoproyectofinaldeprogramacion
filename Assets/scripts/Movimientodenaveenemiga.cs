@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class Movimientodenaveenemiga : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int life = 3;
+    private Rigidbody2D rigibody2d;
+    public float speedx;
+    public float speedy;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        rigibody2d = GetComponent<Rigidbody2D>();
+    }
+    private void FixedUpdate()
+    {
+        rigibody2d.velocity = new Vector2(speedx, speedy);
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "bala")
+        {
+            life = life - 1;
+            if (life < 0) { 
+
+               Destroy(this.gameObject);
+
+            }
+        }
+        if (collision.gameObject.tag == "vacio")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

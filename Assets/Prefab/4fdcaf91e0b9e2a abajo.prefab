@@ -173,4 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedx: 0
   speedy: -10
-  nametag: 
+  nametag: jugador

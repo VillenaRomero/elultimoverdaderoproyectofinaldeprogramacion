@@ -6,6 +6,8 @@ TagManager:
   tags:
   - enemigo
   - jugador
+  - Bala
+  - vacio
   layers:
   - Default
   - TransparentFX

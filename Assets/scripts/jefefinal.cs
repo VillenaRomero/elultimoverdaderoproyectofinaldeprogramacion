@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movimientodesubjefe : MonoBehaviour
+public class jefefinal : MonoBehaviour
 {
+    public int life;
     private Rigidbody rigibody;
     private Transform comTransform;
     public float speed;
@@ -21,8 +22,11 @@ public class Movimientodesubjefe : MonoBehaviour
 
     public Transform spawner1;
     public Transform spawner2;
+    public Transform spawner3;
+    public Transform spawner4;
 
     public Transform cañongiagnte;
+    public Transform cañongiagnte2;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,13 +42,16 @@ public class Movimientodesubjefe : MonoBehaviour
         {
             ShootBullet1();
             ShootBullet2();
+            ShootBullet3();
+            ShootBullet4();
 
             currentTimetuCreate = 0;
         }
         currentTimetuCreate2 = currentTimetuCreate2 + Time.deltaTime;
         if (currentTimetuCreate2 >= timeTibalagigante)
         {
-            BalaGigante();
+            balagiggante();
+            BalaGigante2();
             currentTimetuCreate2 = 0;
         }
     }
@@ -60,23 +67,52 @@ public class Movimientodesubjefe : MonoBehaviour
         bullet.transform.position = spawner2.position;
         bullet.transform.rotation = transform.rotation;
     }
-
-    private void BalaGigante()
+    private void ShootBullet3()
     {
+        GameObject bullet = Instantiate(prefabBullet);
+        bullet.transform.position = spawner3.position;
+        bullet.transform.rotation = transform.rotation;
+    }
+    private void ShootBullet4()
+    {
+        GameObject bullet = Instantiate(prefabBullet);
+        bullet.transform.position = spawner4.position;
+        bullet.transform.rotation = transform.rotation;
+    }
+
+    private void balagiggante() { 
         GameObject bullet = Instantiate(PrefabMisiles);
         bullet.transform.position = cañongiagnte.position;
+        bullet.transform.rotation = transform.rotation;
+    }
+    private void BalaGigante2()
+    {
+        GameObject bullet = Instantiate(PrefabMisiles);
+        bullet.transform.position = cañongiagnte2.position;
         bullet.transform.rotation = transform.rotation;
     }
     void FixedUpdate()
     {
         comTransform.position = new Vector3(comTransform.position.x + speed * xDirection * Time.deltaTime, comTransform.position.y + speed * yDirection * Time.deltaTime);
-        if (comTransform.position.y >= 4)
+        if (comTransform.position.x >= 8)
         {
-            yDirection = -1;
+            xDirection = -1;
         }
-        else if (comTransform.position.y <= -4)
+        else if (comTransform.position.x <= -8)
         {
-            yDirection = 1;
+            xDirection = 1;
+        }
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "Bala")
+        {
+            life--;
+            if (life < 0)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }

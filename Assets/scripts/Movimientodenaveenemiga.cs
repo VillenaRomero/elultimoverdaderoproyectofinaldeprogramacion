@@ -19,16 +19,20 @@ public class Movimientodenaveenemiga : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "bala")
+
+        if (collision.gameObject.tag == "Bala")
         {
-            life = life - 1;
-            if (life < 0) { 
-
-               Destroy(this.gameObject);
-
+            life--;
+            if (life < 0)
+            {
+                Destroy(this.gameObject);
             }
         }
-        if (collision.gameObject.tag == "vacio")
+        if (collision.gameObject.tag == "jugador")
+        {
+            Destroy(this.gameObject);
+        }
+        else if (collision.gameObject.tag == "vacio")
         {
             Destroy(this.gameObject);
         }

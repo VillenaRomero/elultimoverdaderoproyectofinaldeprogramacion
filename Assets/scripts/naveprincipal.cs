@@ -50,17 +50,16 @@ public class naveprincipal : MonoBehaviour
         }*/
     }
 
-    public void OnCollision2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "enemigo")
         {
-            life = life - 1;
+            life--;
 
-            if (life == 0)
+            if (life < 0)
             {
                 SceneManager.LoadScene("derrota");
             }
         }
-
     }
 }

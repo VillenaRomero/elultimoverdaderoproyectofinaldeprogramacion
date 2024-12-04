@@ -19,11 +19,12 @@ public class MovimientodeObjeto : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.tag == nametag)
         {
             Destroy(this.gameObject);
         }
-        if (collision.gameObject.tag == "vacio")
+        else if (collision.gameObject.tag == "vacio")
         {
             Destroy(this.gameObject);
         }

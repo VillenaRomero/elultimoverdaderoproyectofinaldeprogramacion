@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4964239835344803824}
   - component: {fileID: 2366017808381758211}
   - component: {fileID: 4446828032981505046}
+  - component: {fileID: 6011226739866461650}
   m_Layer: 0
   m_Name: nave enemiga 1
   m_TagString: enemigo
@@ -158,3 +159,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.32, y: 5.12}
   m_EdgeRadius: 0
+--- !u!114 &6011226739866461650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771635242281717149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdb0a7a76732f44798f43421132964a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 3
+  speedx: 0
+  speedy: -5

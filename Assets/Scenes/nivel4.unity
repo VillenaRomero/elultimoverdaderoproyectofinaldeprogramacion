@@ -730,9 +730,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0201e0752de7e3f44ac88d40e12be715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 30
   speedx: 15
   speedy: 15
+  life: 30
   spawner: {fileID: 2101135710}
   bulletprefab: {fileID: 8230610911380720749, guid: fd1e183ecd5a02544b5f8d629fdfa1ea, type: 3}
   timeTiCreate: 180
@@ -1329,10 +1329,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adbeabc5abdca1446bc3ed1e0a72b924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 300
-  speed: 10
   speedx: 1
   speedy: 0
+  life: 300
+  speed: 10
   prefabBullet: {fileID: 1155736855}
   PrefabMisiles: {fileID: 1155736855}
   timeTiCreate: 1.5
@@ -1345,6 +1345,7 @@ MonoBehaviour:
   spawner4: {fileID: 780288078}
   "ca\xF1ongiagnte": {fileID: 2000057544}
   "ca\xF1ongiagnte2": {fileID: 683989942}
+  player: {fileID: 0}
 --- !u!1 &2000057543
 GameObject:
   m_ObjectHideFlags: 0

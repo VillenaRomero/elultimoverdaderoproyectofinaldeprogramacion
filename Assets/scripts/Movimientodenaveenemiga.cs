@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movimientodenaveenemiga : MonoBehaviour
+public class Movimientodenaveenemiga : herenciadevelocidad
 {
     public int life = 3;
     private Rigidbody2D rigibody2d;
-    public float speedx;
-    public float speedy;
 
     private void Awake()
     {

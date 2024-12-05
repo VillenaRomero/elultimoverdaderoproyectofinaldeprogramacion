@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class jefefinal : MonoBehaviour
+public class jefefinal : herenciadevelocidad
 {
     public int life;
     private Rigidbody rigibody;
     private Transform comTransform;
     public float speed;
-    public float xDirection = 1;
-    public float yDirection = 1;
 
     public GameObject prefabBullet;
     public GameObject PrefabMisiles;
@@ -27,6 +26,8 @@ public class jefefinal : MonoBehaviour
 
     public Transform cañongiagnte;
     public Transform cañongiagnte2;
+
+    public naveprincipal player;
     // Start is called before the first frame update
     void Start()
     {
@@ -91,27 +92,28 @@ public class jefefinal : MonoBehaviour
         bullet.transform.position = cañongiagnte2.position;
         bullet.transform.rotation = transform.rotation;
     }
+
     void FixedUpdate()
     {
-        comTransform.position = new Vector3(comTransform.position.x + speed * xDirection * Time.deltaTime, comTransform.position.y + speed * yDirection * Time.deltaTime);
+        comTransform.position = new Vector3(comTransform.position.x + speed * speedx * Time.deltaTime, comTransform.position.y + speed * speedy * Time.deltaTime);
         if (comTransform.position.x >= 8)
         {
-            xDirection = -1;
+            speedx = -1;
         }
         else if (comTransform.position.x <= -8)
         {
-            xDirection = 1;
+            speedx = 1;
         }
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (collision.gameObject.tag == "Bala")
         {
             life--;
             if (life < 0)
             {
                 Destroy(this.gameObject);
+                player.OnEnemyDestroyed();
             }
         }
     }

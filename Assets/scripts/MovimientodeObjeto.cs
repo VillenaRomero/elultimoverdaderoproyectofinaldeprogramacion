@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovimientodeObjeto : MonoBehaviour
+public class MovimientodeObjeto : herenciadevelocidad
 {
     private Rigidbody2D rigibody2d;
-    public float speedx;
-    public float speedy;
     public string nametag;
 
     private void Awake()

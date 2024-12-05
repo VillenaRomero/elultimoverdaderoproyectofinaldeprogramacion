@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class naveprincipal : MonoBehaviour
+public class naveprincipal : herenciadevelocidad
 {
     public int life;
-    public float speedx;
-    public float speedy;
     private Rigidbody2D _compRigidbody2D;
     public Transform spawner;
     public GameObject bulletprefab;
@@ -34,7 +32,10 @@ public class naveprincipal : MonoBehaviour
             SceneManager.LoadScene(nivel);
         }
     }
-
+    public void OnEnemyDestroyed()
+    {
+        SceneManager.LoadScene(nivel);
+    }
     // Update is called once per frame
     void FixedUpdate()
     {

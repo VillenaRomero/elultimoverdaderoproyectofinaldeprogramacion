@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movimientodesubjefe : MonoBehaviour
+public class Movimientodesubjefe : herenciadevelocidad
 {
     private Rigidbody rigibody;
     private Transform comTransform;
     public float speed;
-    public float xDirection = 1;
-    public float yDirection = 1;
 
     public GameObject prefabBullet;
     public GameObject PrefabMisiles;
@@ -69,14 +67,14 @@ public class Movimientodesubjefe : MonoBehaviour
     }
     void FixedUpdate()
     {
-        comTransform.position = new Vector3(comTransform.position.x + speed * xDirection * Time.deltaTime, comTransform.position.y + speed * yDirection * Time.deltaTime);
+        comTransform.position = new Vector3(comTransform.position.x + speed * speedx * Time.deltaTime, comTransform.position.y + speed * speedy * Time.deltaTime);
         if (comTransform.position.y >= 4)
         {
-            yDirection = -1;
+            speedy = -1;
         }
         else if (comTransform.position.y <= -4)
         {
-            yDirection = 1;
+            speedy = 1;
         }
     }
 }

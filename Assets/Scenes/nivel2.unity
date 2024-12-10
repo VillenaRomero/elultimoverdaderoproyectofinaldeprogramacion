@@ -679,11 +679,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedx: 10
   speedy: 10
-  life: 15
+  life: 3
   spawner: {fileID: 404138434}
   bulletprefab: {fileID: 8230610911380720749, guid: fd1e183ecd5a02544b5f8d629fdfa1ea, type: 3}
   timeTiCreate: 90
   currentTimetuCreate: 0
+  recoveryTime: 5
+  currentRecoveryTime: 0
   nivel: nivel3
 --- !u!61 &1049834888
 BoxCollider2D:
@@ -924,7 +926,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1faf9a2158d9bc149998f9a19dc40e17, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

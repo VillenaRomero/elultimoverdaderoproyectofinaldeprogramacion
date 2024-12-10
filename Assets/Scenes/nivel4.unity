@@ -732,11 +732,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedx: 15
   speedy: 15
-  life: 30
+  life: 3
   spawner: {fileID: 2101135710}
   bulletprefab: {fileID: 8230610911380720749, guid: fd1e183ecd5a02544b5f8d629fdfa1ea, type: 3}
   timeTiCreate: 180
   currentTimetuCreate: 0
+  recoveryTime: 5
+  currentRecoveryTime: 0
   nivel: Victoria
 --- !u!50 &971510509
 Rigidbody2D:

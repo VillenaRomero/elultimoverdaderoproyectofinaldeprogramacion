@@ -13,6 +13,11 @@ public class naveprincipal : herenciadevelocidad
     public float timeTiCreate = 30;
     public float currentTimetuCreate;
 
+    public float recoveryTime = 5f;
+    public float currentRecoveryTime = 0f;
+
+    private bool canRecoverLife = true;
+
     public string nivel;
     void Start()
     {
@@ -27,6 +32,20 @@ public class naveprincipal : herenciadevelocidad
             bullet.transform.rotation = transform.rotation;
         }
         currentTimetuCreate = currentTimetuCreate + Time.deltaTime;
+        currentRecoveryTime +=  Time.deltaTime;
+
+        if (currentRecoveryTime >= recoveryTime && canRecoverLife)
+        {
+            this.life += 1; 
+            canRecoverLife = false; 
+        }
+
+        if (currentRecoveryTime >= recoveryTime)
+        {
+            currentRecoveryTime = 0f;
+            canRecoverLife = true;
+        }
+
         if (currentTimetuCreate >= timeTiCreate)
         {
             SceneManager.LoadScene(nivel);
@@ -36,19 +55,17 @@ public class naveprincipal : herenciadevelocidad
     {
         SceneManager.LoadScene(nivel);
     }
-    // Update is called once per frame
     void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         _compRigidbody2D.velocity = new Vector2(speedx * horizontal, speedy * vertical);
-
-
-        /*if (puntos == 320)
-        {
-            SceneManager.LoadScene("nivel2");
-        }*/
+    }
+    public static naveprincipal operator +(naveprincipal player, int amount)
+    {
+        player.life += amount;
+        return player; 
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

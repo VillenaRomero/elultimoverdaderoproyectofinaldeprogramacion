@@ -33,6 +33,10 @@ public class naveprincipal : herenciadevelocidad
         }
         currentTimetuCreate = currentTimetuCreate + Time.deltaTime;
         currentRecoveryTime +=  Time.deltaTime;
+        if (currentTimetuCreate >= timeTiCreate)
+        {
+            SceneManager.LoadScene(nivel);
+        }
 
         if (currentRecoveryTime >= recoveryTime && canRecoverLife)
         {
@@ -44,11 +48,6 @@ public class naveprincipal : herenciadevelocidad
         {
             currentRecoveryTime = 0f;
             canRecoverLife = true;
-        }
-
-        if (currentTimetuCreate >= timeTiCreate)
-        {
-            SceneManager.LoadScene(nivel);
         }
     }
     public void OnEnemyDestroyed()
